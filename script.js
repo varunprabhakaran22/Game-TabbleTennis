@@ -78,7 +78,9 @@ function drawcanvas () {
     canvasContext.fillRect(0,0,canvas.width,canvas.height);
     drawElement(10,paddle1,paddleThickness,100,'white');
     drawElement(canvas.width-paddleThickness,paddle2,paddleThickness,100,'white');
-    drawElement(ballPositionX,ballPositionY,10,10,'red');
+    drawElement(ballPositionX,ballPositionY,10,10,'white');
+    canvasContext.fillStyle='#ffffff'
+    canvasContext.font='38px'
     canvasContext.fillText("playerScore",100,80)
     canvasContext.fillText(playerScore,100,100)
     canvasContext.fillText("ComputerScore",canvas.width-200,80)
