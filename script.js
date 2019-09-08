@@ -73,4 +73,5 @@ function mousePosition(x){
 function reset(){
     ballPositionX=canvas.width/2
     ballPositionY=canvas.height/2
+    ballSpeedX=-ballSpeedX
 }
