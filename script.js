@@ -2,11 +2,13 @@
 let canvas;
 let canvasContext;
 let ballPositionX = 50;
-let ballSpeedX = 10;
+let ballSpeedX = 20;
 let ballPositionY=50
-let ballSpeedY=4;
+let ballSpeedY=10;
 let paddle1=250;
 let paddle2=250;
+let playerScore=0
+let computerScore=0
 let paddleThickness=10;
 const PADDLE_HEIGHT=100;
 
@@ -34,18 +36,23 @@ function ballMovement() {
     if(ballPositionX > canvas.width){
         if((ballPositionY>paddle2)&&(ballPositionY<paddle2+PADDLE_HEIGHT)){
             ballSpeedX = -ballSpeedX
+            playerScore++
         }
             else{
                 reset();
+                computerScore++
+                
             }
         
     }
     if(ballPositionX < 0){
         if((ballPositionY>paddle1)&&(ballPositionY<paddle1+PADDLE_HEIGHT)){
         ballSpeedX = -ballSpeedX
+        playerScore++
     }
         else{
             reset();
+            computerScore++
         }
         
     }
@@ -72,6 +79,10 @@ function drawcanvas () {
     drawElement(10,paddle1,paddleThickness,100,'white');
     drawElement(canvas.width-paddleThickness,paddle2,paddleThickness,100,'white');
     drawElement(ballPositionX,ballPositionY,10,10,'red');
+    canvasContext.fillText("playerScore",100,80)
+    canvasContext.fillText(playerScore,100,100)
+    canvasContext.fillText("ComputerScore",canvas.width-200,80)
+    canvasContext.fillText(computerScore,canvas.width-200,100)
 }
 
 function mousePosition(x){
