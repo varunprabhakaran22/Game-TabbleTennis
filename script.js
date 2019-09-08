@@ -13,6 +13,14 @@ function ballMovement() {
     if(ballPositionX > canvas.width){
         ballSpeedX = -ballSpeedX
     }
+    
+    ballPositionY = ballPositionY+ ballSpeedY;
+    if(ballPositionY > canvas.height){
+        ballSpeedY = -ballSpeedY
+    }
+    if(ballPositionY < 0){
+        ballSpeedY = -ballSpeedY
+    }
 }
 
 
