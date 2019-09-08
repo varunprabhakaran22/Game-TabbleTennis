@@ -6,7 +6,10 @@ let ballSpeedX = 10;
 let ballPositionY=50
 let ballSpeedY=4;
 let paddle1=250;
+let paddle2=250;
+let paddleThickness=10;
 const PADDLE_HEIGHT=100;
+
 
 window.onload=function () {
     canvas = document.getElementById('game');
@@ -22,13 +25,20 @@ window.onload=function () {
     canvas.addEventListener('mousemove',function(x){
         let mouPosition=mousePosition(x)
         paddle1=mouPosition.y;
+        paddle2=mouPosition.y;
     })
 
 }
 function ballMovement() {
     ballPositionX = ballPositionX + ballSpeedX;
     if(ballPositionX > canvas.width){
-        ballSpeedX = -ballSpeedX
+        if((ballPositionY>paddle2)&&(ballPositionY<paddle2+PADDLE_HEIGHT)){
+            ballSpeedX = -ballSpeedX
+        }
+            else{
+                reset();
+            }
+        
     }
     if(ballPositionX < 0){
         if((ballPositionY>paddle1)&&(ballPositionY<paddle1+PADDLE_HEIGHT)){
@@ -59,7 +69,8 @@ function drawcanvas () {
     
     canvasContext.fillStyle='black';
     canvasContext.fillRect(0,0,canvas.width,canvas.height);
-    drawElement(10,paddle1,10,100,'white');
+    drawElement(10,paddle1,paddleThickness,100,'white');
+    drawElement(canvas.width-paddleThickness,paddle2,paddleThickness,100,'white');
     drawElement(ballPositionX,ballPositionY,10,10,'red');
 }
 
