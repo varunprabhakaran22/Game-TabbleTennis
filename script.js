@@ -31,9 +31,13 @@ function ballMovement() {
         ballSpeedX = -ballSpeedX
     }
     if(ballPositionX < 0){
-
-        //ballSpeedX = -ballSpeedX
-        reset();
+        if((ballPositionY>paddle1)&&(ballPositionY<paddle1+PADDLE_HEIGHT)){
+        ballSpeedX = -ballSpeedX
+    }
+        else{
+            reset();
+        }
+        
     }
 
 
@@ -73,5 +77,5 @@ function mousePosition(x){
 function reset(){
     ballPositionX=canvas.width/2
     ballPositionY=canvas.height/2
-    ballSpeedX=-ballSpeedX
+    ballSpeedX = -ballSpeedX;
 }
