@@ -13,3 +13,13 @@ function ballMovement() {
     if(ballPositionX > canvas.width){
         ballSpeedX = -ballSpeedX
     }
+}
+
+
+function drawcanvas () {
+    
+    canvasContext.fillStyle='black';
+    canvasContext.fillRect(0,0,canvas.width,canvas.height);
+    drawElement(10,paddle1,10,100,'white');
+    drawElement(ballPositionX,ballPositionY,10,10,'red');
+}
