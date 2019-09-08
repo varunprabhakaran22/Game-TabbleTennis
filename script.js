@@ -1,4 +1,4 @@
-
+// declaring the required variables
 let canvas;
 let canvasContext;
 let ballPositionX = 50;
@@ -11,16 +11,17 @@ let playerScore=0
 let computerScore=0
 let paddleThickness=10;
 const PADDLE_HEIGHT=100;
-
-
+ 
 window.onload=function () {
     canvas = document.getElementById('game');
     canvasContext=canvas.getContext('2d');
+    // setting the speed of the ball
     let Speed = 30;
     setInterval(function callBoth() {
+        //calling the functions 
         ballMovement();
         drawcanvas();
-        
+        // setting the time to call the functions
     },1000/Speed)
 
 
