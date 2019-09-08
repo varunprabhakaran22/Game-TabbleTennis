@@ -23,3 +23,9 @@ function drawcanvas () {
     drawElement(10,paddle1,10,100,'white');
     drawElement(ballPositionX,ballPositionY,10,10,'red');
 }
+
+
+function drawElement(x,y,w,h,color){
+    canvasContext.fillStyle=color;
+    canvasContext.fillRect(x,y,w,h);
+ }
