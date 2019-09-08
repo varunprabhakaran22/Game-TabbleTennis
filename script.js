@@ -1,6 +1,4 @@
 
-
-
 let canvas;
 let canvasContext;
 let ballPositionX = 50;
@@ -33,7 +31,9 @@ function ballMovement() {
         ballSpeedX = -ballSpeedX
     }
     if(ballPositionX < 0){
-        ballSpeedX = -ballSpeedX
+
+        //ballSpeedX = -ballSpeedX
+        reset();
     }
 
 
@@ -70,4 +70,7 @@ function mousePosition(x){
     }
 }
 
-
+function reset(){
+    ballPositionX=canvas.width/2
+    ballPositionY=canvas.height/2
+}
