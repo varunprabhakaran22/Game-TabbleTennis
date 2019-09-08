@@ -37,3 +37,18 @@ function drawElement(x,y,w,h,color){
     canvasContext.fillStyle=color;
     canvasContext.fillRect(x,y,w,h);
  }
+
+
+ 
+function mousePosition(x){
+    let can=canvas.getBoundingClientRect();
+    let root=document.documentElement;
+    let movX=x.clientX-can.left-root.scrollLeft;
+    let movY=x.clientY-can.top-root.scrollTop;
+    return {
+        X:movX,
+        y:movY
+    }
+}
+
+
