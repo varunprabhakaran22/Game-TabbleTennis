@@ -24,14 +24,16 @@ window.onload=function () {
         // setting the time to call the functions
     },1000/Speed)
 
-
+    //event listener to detect the position of the mouse
     canvas.addEventListener('mousemove',function(x){
         let mouPosition=mousePosition(x)
+        //getting the value of the mouse
         paddle1=mouPosition.y;
         paddle2=mouPosition.y;
     })
 
 }
+  //changing the ball position (X,Y) 
 function ballMovement() {
     ballPositionX = ballPositionX + ballSpeedX;
     if(ballPositionX > canvas.width){
@@ -68,11 +70,14 @@ function ballMovement() {
     }
     
 }
+
+//function to draw in canvas
  function drawElement(x,y,w,h,color){
     canvasContext.fillStyle=color;
     canvasContext.fillRect(x,y,w,h);
  }
 
+ // function to draw elements in canvas
 function drawcanvas () {
     
     canvasContext.fillStyle='black';
@@ -88,6 +93,8 @@ function drawcanvas () {
     canvasContext.fillText(computerScore,canvas.width-200,100)
 }
 
+
+//getting the position of the mouse point values based on inbuildd function
 function mousePosition(x){
     let can=canvas.getBoundingClientRect();
     let root=document.documentElement;
@@ -98,7 +105,7 @@ function mousePosition(x){
         y:movY
     }
 }
-
+//reset function to reset the ball to center
 function reset(){
     ballPositionX=canvas.width/2
     ballPositionY=canvas.height/2
